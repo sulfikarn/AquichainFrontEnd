@@ -1,0 +1,55 @@
+replicaCount: 2
+
+runtime: RUN_TIME
+
+image:
+  repository: CI_REGISTRY_IMAGE
+  tag: "CI_COMMIT_REF_SLUG"
+  pullPolicy: Always
+
+port:
+  name: http
+  containerPort: 80
+  protocol: TCP
+
+service:
+  type: ClusterIP
+  port: 80
+
+healthcheck:
+  enabled: true
+  path: /
+
+imagePullSecrets: [ name: gitlab-registry ]
+
+variables:
+  enabled: false
+  data: DOCKER_VARIABLES
+  path: /server/variables.docker.rb
+  subpath: variables.docker.rb
+
+istio:
+  enabled: true
+  secretName: URL
+  commonName: URL
+  issuerRefName: letsencrypt-r53
+  hosts:
+    - URL
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 60
+  # targetMemoryUtilizationPercentage: 80
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "16Mi"
+  limits:
+    cpu: "500m"
+    memory: "256Mi"
+
+nodeSelector:
+  env: prod

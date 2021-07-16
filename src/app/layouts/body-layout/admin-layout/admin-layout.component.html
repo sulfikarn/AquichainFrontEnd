@@ -1,0 +1,22 @@
+<div class="aqui-main">
+
+    <div class="aqui-sidebar">
+        <div class="aqui-listing">
+            <div class="aqui-logo">
+              <!-- <a routerLink="/login"><img class="aqui-sidebar-logo" src="../../../../assets/images/logo/aqui-logo-1x.png" alt="logo"></a>Aquichain-logo-2.jpg -->
+              <a routerLink="/login"><img class="aqui-sidebar-logo" src="../../../../assets/images/logo/Aquichain-logo-2.jpg" alt="logo"></a>
+            </div>
+            <ul class="navbar-nav aqui-navbar">
+              <app-admin-sidebar></app-admin-sidebar>
+            </ul>
+          </div>
+    </div>
+
+    <div class="aqui-body-content">  
+      <app-admin-header></app-admin-header>
+      <div class="aqui-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+</div>

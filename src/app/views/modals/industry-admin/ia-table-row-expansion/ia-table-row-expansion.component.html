@@ -1,0 +1,81 @@
+<div class="modal-center">
+    <div class="text-left col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
+      <div class="card aqui-modal-card">
+        <i class="fal fa-times fa-1x close" aria-hidden="true" (click)="dialogRef.close({ event: 'close' })"></i>
+
+        <div class="row aqui-row-data-content" *ngIf="mainPage=='industry'">
+          <div class="col-7 field-col">
+            <span class="field-name">Sub-Industry Name</span>:<span class="field-content"> {{ rowContent.subIndustryName }} </span>
+          </div>
+          <div class="col-5 field-col">
+            <span class="field-name">Aquifier Number</span>:<span class="field-content"> {{ rowContent.aquifierNumber }} </span>
+          </div>
+          <div class="col-6 field-col">
+            <span class="field-name">Water Consumption(Per Day) </span>:<span class="field-content"> {{ rowContent.waterConsumption }} </span>
+          </div>
+          <div class="col-6 field-col">
+            <span class="field-name">Production (Per Day)</span>:<span class="field-content"> {{ rowContent.production }} </span>
+          </div>
+        </div>
+
+        <!-- product modal -->
+        <div class="row aqui-row-data-content" *ngIf="mainPage=='product'">
+          <table mat-table [dataSource]="dataSourceModal">
+
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+            <ng-container matColumnDef="subProductOne">
+              <th mat-header-cell *matHeaderCellDef> Sub Product 01 (Bottle) </th>
+              <td mat-cell *matCellDef="let element"> {{element.subProductOne}} </td>
+            </ng-container>
+            <ng-container matColumnDef="subProductTwo">
+              <th mat-header-cell *matHeaderCellDef> Sub Product 02 
+                (Cap) </th>
+              <td mat-cell *matCellDef="let element"> {{element.subProductTwo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="subProductThree">
+              <th mat-header-cell *matHeaderCellDef> Sub Product 03 
+                (Label) </th>
+              <td mat-cell *matCellDef="let element"> {{element.subProductThree}} </td>
+            </ng-container>
+            <ng-container matColumnDef="subProductfour">
+              <th mat-header-cell *matHeaderCellDef> Sub Product 04 
+                (Beverages) </th>
+              <td mat-cell *matCellDef="let element"> {{element.subProductfour}} </td>
+            </ng-container>
+        
+            
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+        
+            <div class="table-break"></div>
+          </table>
+        
+        </div>
+
+        <!-- Alert modal -->
+
+        <div class="row aqui-row-data-content" *ngIf="mainPage=='alert'">
+          <div class="col-6 field-col">
+            <span class="field-name">Actual Usage</span>:<span class="field-content"> {{ rowAler.actualUsage }} </span>
+          </div>
+          <div class="col-6 field-col">
+            <span class="field-name">Water Threshold</span>:<span class="field-content"> {{ rowAler.waterThreshold }} </span>
+          </div>
+          <div class="col-5 field-col">
+            <span class="field-name">Excess Usage </span>:<span class="field-content"> 500 Litres <span placement="bottom" ngbTooltip="This measure shows quantity used beyond the threshold limit" ><i class="fal fa-question-circle"></i></span></span>
+          </div>
+          <div class="col-7 field-col">
+            <span class="field-name">Transaction ID</span>:<span class="field-content"> {{ rowAler.transactionID }} </span>
+          </div>
+          <div class="col-12 field-col">
+            <span class="field-name">Blockchain Hash</span>:<span class="field-content"> {{ rowAler.blockchainHash }} </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

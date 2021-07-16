@@ -1,0 +1,33 @@
+<div class="modal-center">
+    <div class="text-left col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10">
+      <div class="card aqui-modal-card">
+        <i class="fal fa-times fa-1x close" aria-hidden="true" (click)="dialogRef.close({ event: 'close' })"></i>
+
+        <div class="row aqui-row-data-content">
+          <div class="col-4 field-col">
+            <span class="field-name">Country</span>:<span class="field-content"> {{ rowContent.country }} </span>
+          </div>
+          <div class="col-4 field-col">
+            <span class="field-name">Area Jurisdiction</span>:<span class="field-content"> Sample </span>
+          </div>
+          <div class="col-4 field-col">
+            <span class="field-name">Aquifier Area</span>:<span class="field-content"> {{ rowContent.aquifierArea }} </span>
+          </div>
+          <div class="col-4 field-col">
+            <span class="field-name">Aquifier Number</span>:<span class="field-content"> {{ rowContent.aquifierNumber }} </span>
+          </div>
+          <div class="col-8 field-col">
+            <span class="field-name">Water Capacity in Aquifier</span>:<span class="field-content"> 1000L </span>
+          </div>
+          <div class="col-12 field-col d-g">
+            <span class="field-content"> Google Map Location </span>
+            <!-- Google Map Code -->
+            <agm-map [latitude]="lat" [longitude]="lng">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

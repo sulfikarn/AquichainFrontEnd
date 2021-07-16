@@ -1,0 +1,56 @@
+.login_text{
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+  padding-right: 17rem;
+  margin-bottom: 0rem;
+  margin-top: 3rem;
+}
+
+.form_wrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_group{
+  margin-top: 1rem;
+}
+
+.form_group input,.btn_submit{
+  width: 426px;
+  height: 56px;
+  border: 0.5px solid #303030;
+  border-radius: 10px;
+}
+
+.btn_submit{
+  margin-top: 1rem;
+  background: #00A1ED;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+}
+.forget_password_link{
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 0.8rem;
+}
+.register{
+  display: flex;
+  justify-content:end;
+  align-items:center;
+}
+.register_text{
+  color: #000000;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 7rem;
+}
+.register_text a{
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}

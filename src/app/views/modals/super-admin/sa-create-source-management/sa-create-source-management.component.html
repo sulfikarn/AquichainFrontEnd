@@ -1,0 +1,49 @@
+<div class="modal-center">
+    <div class="text-left col-12 col-sm-12 col-md-12 col-lg-10 col-xl-8">
+      <div class="card aqui-modal-card">
+        <i class="fal fa-times fa-1x close" aria-hidden="true" (click)="dialogRef.close({ event: 'close' })"></i>
+
+        <div class="aqui-form-content">
+            <h1 class="modal-heading">Create Source Management</h1>
+          <div>
+              <form [formGroup]="" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" formControlName="email" id="email" class="aqui-modal-input form-control" placeholder="Country">
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="email" id="email" class="aqui-modal-input form-control" placeholder="Area Jurisdiction">
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="email" id="email" class="aqui-modal-input form-control" placeholder="Aquifier Number">
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="email" id="email" class="aqui-modal-input form-control" placeholder="Aquifier Area">
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <input type="text" formControlName="email" id="email" class="aqui-modal-input form-control" placeholder="Water Capacity in Aquifier">
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <label class="aqui-modal-label" for="">Google Map Location</label>
+                    <agm-map [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                      </agm-map>
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+              </form>
+
+              <div class="d-g">
+                  <button class="aqui-modal-long-button mb-3">Create</button>
+                  <button class="aqui-modal-hollow-long-button" (click)="dialogRef.close({ event: 'close' })">Cancel</button>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

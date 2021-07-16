@@ -1,0 +1,72 @@
+<div class="modal-center">
+    <div class="text-left col-12 col-sm-12 col-md-12 col-lg-10 col-xl-8">
+      <div class="card aqui-modal-card">
+        <i class="fal fa-times fa-1x close" aria-hidden="true" (click)="dialogRef.close({ event: 'close' })"></i>
+
+        <div class="aqui-form-content">
+            <h1 class="modal-heading">Add Product </h1>
+          <div>
+              <form  autocomplete="off">
+                <div class="form-group">
+                    <input type="text" formControlName="email" id="email" class="aqui-modal-input form-control" placeholder="Sub Industry Name">
+                    <!-- <app-control-messages [control]="formname.controls.formControlName"></app-control-messages> -->
+                  </div>
+                  
+                  <div class="form-group">
+                    <mat-form-field class="aqui-modal-input form-control">
+                      <mat-label>State</mat-label>
+                      <mat-select>
+                        <input placeholder="Search..." matInput type="text" (keyup)="onKey($event.target.value)" class="example-input">
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let state of selectedStates" [value]="state">{{state}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  
+                    
+                  
+
+                  <div class="text-right">
+                    <button class="btn_component" (click)="addvalue()">Add Component</button>
+                  </div>
+                  
+                  <div class="component_fields" *ngFor="let value of values; let i = index"> 
+                    <!-- <input type="text" [(ngModel)]="value.value" #name="ngModel" name="value{{i}}"> -->
+                    
+                      <mat-form-field class="aqui-modal-input form-control matfield">
+                        <mat-label>State</mat-label>
+                        <mat-select>
+                          <input placeholder="Search..." matInput type="text" (keyup)="onKey($event.target.value)" class="example-input">
+                          <mat-option>None</mat-option>
+                          <mat-option *ngFor="let state of selectedStates" [value]="state">{{state}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      
+                    
+                    
+                    <div class="remove_session">
+                      <div class="form-group">
+                        <input type="text" class="aqui-modal-input form-control">
+                      </div>
+                      <span (click)="removevalue(i)" class="btn_remove"><i class="fal fa-trash-alt"></i></span>
+                      <!-- <button (click)="removevalue(i)" class="btn_remove">Remove</button> -->
+                    </div>
+                  </div>
+                  
+                  
+              </form>
+
+              
+
+              <div class="d-g">
+                  <button class="aqui-modal-long-button btn_create mb-3">Create</button>
+                  <button class="aqui-modal-hollow-long-button" (click)="dialogRef.close({ event: 'close' })">Cancel</button>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

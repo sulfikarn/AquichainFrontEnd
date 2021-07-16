@@ -1,0 +1,59 @@
+p {
+    font-family: Lato;
+  }
+  
+  .example-form-field {
+    width: 300px;
+  }
+  
+  .example-input {
+    margin-top: 0.8rem;
+    margin-left: 0.8rem;
+    border: none;
+  }
+
+  input:focus {
+    box-shadow: none !important;
+    background: #fff !important;
+}
+
+  input:focus-visible {
+    outline-offset: 0px;
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.btn_component{
+    background: rgba(0, 161, 237, 0.2);
+    border: 1px solid #00A1ED;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 8px;
+    
+}
+.component_fields{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 0.5px solid #303030;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.matfield{
+    width:50%
+}
+
+.remove_session{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_remove{
+    margin-left: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.btn_create{
+    margin-top: 3rem;
+}

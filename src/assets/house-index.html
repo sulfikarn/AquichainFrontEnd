@@ -1,0 +1,95 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="csrf-token" content="E3EeFPNCw6bzlMnxywY7iLKLEJELmGB8SIgICRf0">
+	<meta name="api-token" content="17254faec6a60f58458308763">
+	<title>Ware-House Dashboard</title>
+	<style>
+	body { margin: 0; }
+	canvas { display: block; }
+	</style>
+	<script>
+		var MTLLoader;
+	</script>
+	<script type="module">
+		import("./lib/MTLLoader.js").then((module)=> { MTLLoader = module.MTLLoader});
+	</script>
+	<script src="jquery-1.11.1.min.js"></script>
+
+	<script src="js/toastr.min.js"></script>
+	<script src="lib/dat.gui.min.js"></script>
+	<script src="lib/three.min.js"></script>
+	<script src="js/xivelyjs.js"></script>
+	<script src="lib/reconnecting-ws.js"></script>
+	<script src="lib/OrbitControls.js"></script>
+	<script src="lib/Tween.js"></script>
+	<script src="lib/math.js"></script>
+	<script src="lib/canvasloader.js"></script>
+	<script src="lib/GPUPicker.js"></script>
+	<script src="lib/UnpackDepthRGBAShader.js"></script>
+	<script src="lib/ObjectLoader.js"></script>
+	<script src="lib/ObjectExporter.js"></script>
+	<script src="lib/TransformControls.js"></script>
+	<script src="lib/toastr.min.js"></script>
+	<script src="lib/Detector.js"></script>
+
+	<script>
+	var font = {};
+	const fontLoader = new THREE.FontLoader();
+	fontLoader.load('js/Roboto_Regular.json', (fnt) => font = fnt);
+	</script>
+
+	<!-- OTHER -->
+	<script src="js/HelperFunctions.js"></script>
+	<script src="js/Language.js"></script>
+	<script src="js/Colors.js"></script>
+	<script src="js/DataLoader.js"></script>
+	<script src="js/DataParser.js"></script>
+	<script src="js/Observable.js"></script>
+
+	<!-- CONTROLLER -->
+	<script src="js/controller/WorldController.js"></script>
+
+	<!-- MODEL -->
+	<script src="js/model/BasicObject.js"></script>
+	<script src="js/model/World.js"></script>
+	<script src="js/model/Building.js"></script>
+	<script src="js/model/Plan.js"></script>
+	<script src="js/model/Anchor.js"></script>
+	<script src="js/model/Tag.js"></script>
+	<script src="js/model/TagGhost.js"></script>
+	<script src="js/model/Zone.js"></script>
+	<script src="js/model/StaticModel.js"></script>
+
+	<!-- VIEW : GENERAL -->
+	<script src="js/view/MainView.js"></script>
+	<script src="js/view/RenderingContext.js"></script>
+	<script src="js/view/ViewMediatorFactory.js"></script>
+
+	<!-- VIEW : MEDIATOR -->
+	<script src="js/view/mediator/ViewMediator.js"></script>
+	<script src="js/view/mediator/WorldViewMediator.js"></script>
+	<script src="js/view/mediator/BuildingViewMediator.js"></script>
+	<script src="js/view/mediator/PlanViewMediator.js"></script>
+	<script src="js/view/mediator/AnchorViewMediator.js"></script>
+	<script src="js/view/mediator/TagViewMediator.js"></script>
+	<script src="js/view/mediator/TagGhostViewMediator.js"></script>
+	<script src="js/view/mediator/ZoneViewMediator.js"></script>
+	<script src="js/view/mediator/StaticModelViewMediator.js"></script>
+
+	<!-- VIEW : CONTROLS -->
+	<script src="js/view/controls/Gui.js"></script>
+	<script src="js/view/controls/ObjectPicker.js"></script>
+
+	<script src="main.js"></script>
+	<script src="lib/effect.js"></script>
+	<script src="global.js"></script>
+	<script src="app.js"></script>
+
+</head>
+
+<body>
+	<div id="canvas"></div>
+</body>
+
+</html>

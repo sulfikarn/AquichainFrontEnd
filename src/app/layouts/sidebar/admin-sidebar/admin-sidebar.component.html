@@ -1,0 +1,44 @@
+<div *ngIf="role=='sub-industry-admin'">
+    <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/sub-industry-admin/dashboard" routerLinkActive="is-active"><span class="icon-dashboard-icon aquai-sidebar-icon"></span>Dashboard</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/sub-industry-admin/industry-management" routerLinkActive="is-active"><span class="icon-industry-icon aquai-sidebar-icon"></span>Industry Management</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/sub-industry-admin/alerts" routerLinkActive="is-active"><span class="icon-alert-icon aquai-sidebar-icon"></span>Alert Viewer</a>
+      </li>
+</div>
+
+<div *ngIf="role=='industry-admin'">
+    <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/industry-admin/dashboard" routerLinkActive="is-active"><span class="icon-dashboard-icon aquai-sidebar-icon"></span>Dashboard</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/industry-admin/industry-management" routerLinkActive="is-active"><span class="icon-industry-icon aquai-sidebar-icon"></span>Industry Management</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/industry-admin/product-management" routerLinkActive="is-active"><span class="icon-user-icon aquai-sidebar-icon"></span>Product Management</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/industry-admin/alerts" routerLinkActive="is-active"><span class="icon-alert-icon aquai-sidebar-icon"></span>Alert Viewer</a>
+      </li>
+</div>
+
+<div *ngIf="role=='super-admin'">
+    <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/super-admin/dashboard" routerLinkActive="is-active"><span class="icon-dashboard-icon aquai-sidebar-icon"></span>Dashboard</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/super-admin/source-management" routerLinkActive="is-active"><span class="icon-source-icon aquai-sidebar-icon"></span>Source Management</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/super-admin/industry-management" routerLinkActive="is-active"><span class="icon-industry-icon aquai-sidebar-icon"></span>Industry Management</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/super-admin/user-management" routerLinkActive="is-active"><span class="icon-user-icon aquai-sidebar-icon"></span>User Management</a>
+      </li>
+      <li class="nav-item aqui-menu">
+        <a class="nav-link" routerLink="/super-admin/alerts" routerLinkActive="is-active"><span class="icon-alert-icon aquai-sidebar-icon"></span>Alert Viewer</a>
+      </li>
+</div>

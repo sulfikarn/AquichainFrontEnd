@@ -1,0 +1,94 @@
+.container-fluid{
+    margin-bottom: 10%;
+    background-position: 64%;
+    background-size: 100%;
+  }
+  
+  .profile-card, .setting-card {
+    display: grid;
+    background: var(--black-white-contrast);
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  }
+  i {
+    padding-right: 8%;
+  }
+  .account-password{
+    height: calc(1.5em + 0.75rem + 25px) !important;
+  }
+  .heading{
+    color: var(--main-theme-color);
+    font-family: 'ubuntumedium';
+    font-size: 22px;
+    line-height: 29px;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+  }
+  .coin-profile-img-button{
+    background-color: transparent;
+    border-color: 2px solid var(--main-theme-color) !important;
+    font-family: 'ubuntubold';
+    color: var(--main-theme-color);
+    width: 100%;
+    height: calc(0.5em + 0.75rem + 15px);
+    border-radius: 60px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .coin-input, .coin-input:focus {
+    background-color: var(--profile-input-background);
+    width:100%;
+    padding: 1% 10%;
+  }
+  .profile-image-box{
+    border: 8px solid var(--main-theme-color);
+    border-radius: 50%;
+    padding: 0 !important;
+    margin-bottom:2rem;
+  }
+  .profile-img{
+    padding: 10px;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .card-details{
+    justify-content: space-between;
+  }
+  .profile-details{
+    font-family: 'ubuntumedium';
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: 0.1px;
+    color: #979797;
+    /* justify-content: center; */
+  }
+  .profile-details span{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+  }
+  .prof .col-6{
+    margin:2% 0 !important;
+  }
+  .profile-edit{
+    text-align: right;
+  }
+  .fa-edit{
+    color: var(--main-theme-color);
+    font-size:1.5rem;
+    cursor: pointer;
+  }
+  .coin-label {
+    font-family: 'ubuntumedium';
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--sub-titles);
+  }
+  /* @media (min-width: 992px){
+  .col-lg-5 {
+  margin-left: 10%;
+  }
+  } */
+  

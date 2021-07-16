@@ -1,0 +1,30 @@
+<button class="aqui-short-button float-right" (click)="openAddProduct()">Add Product</button>
+<div class="aqui-table-container mat-elevation-z8">
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef> Sub-Industry Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="industryName">
+      <th mat-header-cell *matHeaderCellDef> Aquifier Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.industryName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <img class="aqui-table-action" src="../../../../assets/images/icon/table-action-icon.png" alt="logo">
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="expandTableRow(row)"></tr>
+
+    <div class="table-break"></div>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+</div>

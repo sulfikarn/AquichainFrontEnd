@@ -1,0 +1,137 @@
+<div class="container-fluid view-profile" [hidden]="!isEditProfile">
+
+    <div class="profile-card" >
+      <div class="card-body">
+        <div class="d-f row card-details">
+          <div class="d-f col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-3 profile-image-box">
+            <img src="{{ profileImage }}" class="profile-img prof" alt="">
+          </div>
+  
+          <div class=" d-g col-xs-12 col-sm-12 col-md-7 col-lg-6 col-xl-6 profile-details prof">
+            <div class="m-a">
+              <div class="row">
+                <div class="col-6"><span>First Name</span></div>
+                <div class="col-6"><span>{{ userDetails.firstName }}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><span>Last Name</span></div>
+                <div class="col-6"><span>{{ userDetails.lastName }}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><span>Email</span></div>
+                <div class="col-6"><span>{{ userDetails.email }}</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="d-g col-xs-12 col-sm-12 col-md-2 col-lg-1 col-xl-1 profile-edit">
+            <div>
+              <i class="fal fa-edit"  (click)="EditProfileToggle()"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mt-4 j-c-c">
+      <div class="col-12 col-md-8 col-lg-4 col-xl-3">
+        <button type="button" class="btn coin-button account-password" [hidden]="isShowChangePassword" (click)="changePasswordButtonToggle()">Change Password</button>
+      </div>
+    </div>
+  
+    <div class="setting-card" [hidden]="!isShowChangePassword">
+      <h2 class="heading">Change Password</h2>
+      <form class="col-12 col-md-6 col-lg-6 col-xl-5" [formGroup]="changePasswordForm" autocomplete="off">
+        <div class="form-group">
+          <div class="d-f">
+            <input type="password" formControlName="currentPassword" class="coin-input form-control" id="currentPassword" placeholder="Current Password">
+            <span class="eye-span"><button (click)="viewPassword('currentPassword')" class="eye-btn reveal" type="button"><i class="far fa-eye"></i></button></span>
+          </div>
+          <!-- <app-control-messages [control]="changePasswordForm.controls.currentPassword"></app-control-messages> -->
+        </div>
+        <div class="form-group">
+          <div class=" d-f">
+            <input type="password" formControlName="newPassword" class="coin-input form-control" id="newPassword" placeholder="New Password">
+            <span class="eye-span"><button (click)="viewPassword('newPassword')" class="eye-btn reveal" type="button"><i class="far fa-eye"></i></button></span>
+          </div>
+          <div class="error" *ngIf="changePasswordForm.controls.newPassword.errors && changePasswordForm.controls.newPassword.errors.mustnotMatch">New password should be different from current password.</div>
+          <!-- <app-control-messages [control]="changePasswordForm.controls.password"></app-control-messages> -->
+        </div>
+        <div class="form-group">
+          <div class=" d-f">
+            <input type="password" formControlName="confirmPassword" class="coin-input form-control" id="confirmPassword" placeholder="Confirm New Password">
+            <span class="eye-span"><button (click)="viewPassword('confirmPassword')" class="eye-btn reveal" type="button"><i class="far fa-eye"></i></button></span>
+          </div>
+          <div class="error" *ngIf="changePasswordForm.controls.confirmPassword.errors && changePasswordForm.controls.confirmPassword.errors.mustMatch">Please enter the same password.</div>
+          <!-- <app-control-messages [control]="changePasswordForm.controls.confirmPassword"></app-control-messages> -->
+        </div>
+  
+        <div class="form-group d-f mt-4 j-c-c">
+          <div class="col-11 col-md-5 col-lg-5 col-xl-5">
+            <button type="button" class="btn coin-cancel-button change-password" (click)="changePasswordButtonToggle()">Cancel</button>
+          </div>
+          <div class="col-11 col-md-5 col-lg-5 col-xl-5">
+            <button type="button" class="btn coin-button change-password" (click)="changePassword()">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+  </div>
+  
+  
+  <div class="container-fluid edit-profile" [hidden]="isEditProfile">
+  
+    <div class="profile-card col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-8">
+      <div class="card-body">
+        <div class="d-f row card-details">
+          <div class="d-g mb-4 col-xs-12 col-sm-6 col-md-7 col-lg-5 col-xl-5">
+            <div class="profile-image-box">
+              <img src="{{ profileImage }}" class="profile-img prof" alt="">
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <button type="button" class="btn coin-profile-img-button cancel-update-profile" (click)="changeProfileImage()">
+                  <i class="fal fa-pencil-alt"></i>Change</button>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="btn coin-profile-img-button update-profile" (click)="removeProfileImage()">
+                    <i class="fal fa-trash-alt"></i>Remove</button>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="d-g m-a col-xs-12 col-sm-6 col-md-5 col-lg-6 col-xl-5 profile-details">
+                <form class="" [formGroup]="updateProfileForm" autocomplete="off">
+                  <div class="form-group">
+                    <label class="coin-label" for="firstName">First Name</label>
+                    <div class=" d-f">
+                      <input type="text" formControlName="firstName" class="coin-input form-control" id="firstName" placeholder="First Name">
+                    </div>
+                    <!-- <app-control-messages [control]="updateProfileForm.controls.firstName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <label class="coin-label" for="lastName">Last Name</label>
+                    <div class=" d-f">
+                      <input type="text" formControlName="lastName" class="coin-input form-control" id="lastName" placeholder="Last Name">
+                    </div>
+                    <!-- <app-control-messages [control]="updateProfileForm.controls.lastName"></app-control-messages> -->
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-6">
+                        <button type="button" class="btn coin-cancel-button update-profile" (click)="EditProfileToggle()">Cancel</button>
+                      </div>
+                      <div class="col-6">
+                        <button type="button" class="btn coin-button update-profile" (click)="UpdateProfile()">Update</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+      
+  

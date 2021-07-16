@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg">
+    <h1 class="aqui-page-heading">{{ title }}</h1>
+    <div class="aqui-logo aquai-header-nav-routes">
+      <a routerLink="/login"><img class="aqui-sidebar-logo" src="../../../../assets/images/logo/aqui-logo-1x.png" alt="logo"></a> <span class="navbar-toggler-icon"></span>
+  </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto aquai-header-nav-routes">
+        <app-admin-sidebar></app-admin-sidebar>
+
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <div class="d-f header-search">
+          <span class="icon-search-header-icon"></span>
+          <input class="form-control b-none mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <img class="aqui-header-filter" src="../../../../assets/images/icon/header-filter-icon.png" alt="logo">
+
+        <img class="aqui-avatar-mini-img" src="../../../../assets/images/img/avatar.jpeg" alt="logo">
+        <div class="dropdown">
+        <img class="aqui-header-down-arrow dropdown-toggle" src="../../../../assets/images/icon/header-down-arrow-icon.png" alt="logo" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/super-admin/profile">Profile</a>
+          <a class="dropdown-item" routerLink="/login">Log Out</a>
+        </div>
+        </div>
+        
+        <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <ul class="nav navbar-nav">
+            <li class="cursor-pointer">
+              <li class="cursor-pointer"><a class="dropdown-item pointer-cursor" routerLink="/user/profile">Profile</a></li>
+              <li class="cursor-pointer"><a class="dropdown-item cursor-pointer" (click)="doLogout()">Logout</a></li>
+            </ul>
+          </div> -->
+
+    </div>
+    </div>
+  </nav>

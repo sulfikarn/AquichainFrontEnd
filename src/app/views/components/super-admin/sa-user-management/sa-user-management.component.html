@@ -1,0 +1,126 @@
+<button class="aqui-short-button float-right">Create New</button>
+<div class="aqui-table-container mat-elevation-z8">
+
+  <!-- <table mat-table [dataSource]="dataSource">
+    <div class="table-break"></div>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="aquifierNumber">
+      <th mat-header-cell *matHeaderCellDef> Aquifier Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.aquifierNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="aquifierArea">
+      <th mat-header-cell *matHeaderCellDef> Aquifier Area </th>
+      <td mat-cell *matCellDef="let element"> {{element.aquifierArea}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <img class="aqui-table-action" src="../../../../assets/images/icon/table-action-icon.png" alt="logo">
+      </td>
+    </ng-container>
+   
+    <div>
+        <div class="row">
+          <div class="col-4">
+            <span>Country</span>:<span> dvgdgd </span>
+          </div>
+          <div class="col-4">
+            <span>Area Jurisdiction</span>:<span> Sample </span>
+          </div>
+          <div class="col-4">
+            <span>Aquifier Area</span>:<span> efdf </span>
+          </div>
+          <div class="col-4">
+            <span>Aquifier Number</span>:<span> adfd </span>
+          </div>
+          <div class="col-4">
+            <span>Water Capacity in Aquifier</span>:<span> 1000L </span>
+          </div>
+        </div>
+      </div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <div class="table-break"></div>
+  </table> -->
+
+
+
+  <mat-table #table [dataSource]="dataSource" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="aquifierNumber">
+      <mat-header-cell *matHeaderCellDef> Aquifier Number </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.aquifierNumber}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="aquifierArea">
+      <mat-header-cell *matHeaderCellDef> Aquifier Area </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.aquifierArea}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <img class="aqui-table-action" src="../../../../assets/images/icon/table-action-icon.png" alt="logo">
+      </mat-cell>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column -->
+    <ng-container matColumnDef="expandedDetail">
+      <mat-cell *matCellDef="let detail"> 
+        
+        <div>
+          <div class="row">
+            <div class="col-4">
+              <span>Country</span>:<span> dvgdgd </span>
+            </div>
+            <div class="col-4">
+              <span>Area Jurisdiction</span>:<span> Sample </span>
+            </div>
+            <div class="col-4">
+              <span>Aquifier Area</span>:<span> efdf </span>
+            </div>
+            <div class="col-4">
+              <span>Aquifier Number</span>:<span> adfd </span>
+            </div>
+            <div class="col-4">
+              <span>Water Capacity in Aquifier</span>:<span> 1000L </span>
+            </div>
+          </div>
+        </div>
+
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+            matRipple 
+            class="element-row" 
+            [class.expanded]="expandedElement == row"
+            (click)="expandedElement === row? expandedElement = null : expandedElement = row"></mat-row>
+    <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+            [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+            style="overflow: hidden"> 
+    </mat-row>
+  </mat-table>
+  
+  <!-- <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator> -->
+</div>

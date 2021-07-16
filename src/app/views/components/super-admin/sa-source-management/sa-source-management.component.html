@@ -1,0 +1,35 @@
+<button class="aqui-short-button float-right" (click)="openCreateSourceManagement()">Create New</button>
+<div class="aqui-table-container mat-elevation-z8">
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="aquifierNumber">
+      <th mat-header-cell *matHeaderCellDef> Aquifier Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.aquifierNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="aquifierArea">
+      <th mat-header-cell *matHeaderCellDef> Aquifier Area </th>
+      <td mat-cell *matCellDef="let element"> {{element.aquifierArea}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <img class="aqui-table-action" src="../../../../assets/images/icon/table-action-icon.png" alt="logo">
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="expandTableRow(row)"></tr>
+
+    <div class="table-break"></div>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+</div>

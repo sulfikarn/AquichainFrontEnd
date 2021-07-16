@@ -1,0 +1,33 @@
+.main_container{
+    width: 100%;
+    min-height: 100vh;
+    color: chartreuse;
+    background-image: url(../../../../assets/images/background/download.jpg);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.session_login{
+    background-color: #FFFFFF;
+    width: 650px;
+    height: 624px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+}
+
+.logo img{
+    width:30%
+}

@@ -1,0 +1,120 @@
+# ---
+# #
+# # Gitlab CI configuration file
+# #
+# image: docker:stable
+
+# stages:
+#   - dockerize
+#   - deploy
+
+# variables:
+#   APP_NAME: accenture-viera
+#   IMAGE: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+#   URL_REVIEW: ${APP_NAME}.${CI_COMMIT_REF_SLUG}.netobjex.com
+#   URL_PRODUCTION: accenture-viera.netobjex.com
+
+# #
+# # Dockerize review
+# #
+# dockerize_dev:
+#   environment: development
+#   stage: dockerize
+#   tags:
+#     - docker
+#     - eks
+#   script:
+#     - find . -type f -print0 | xargs -0 chmod 644
+#     - docker login -u ${DEPLOY_USER} -p ${DEPLOY_PASSWORD} ${CI_REGISTRY}
+#     - docker pull ${IMAGE} || true
+#     - docker build --cache-from ${IMAGE} -t ${IMAGE} --build-arg ENV="${CI_COMMIT_REF_SLUG}" -f ./Dockerfile .
+#     - docker push ${IMAGE}
+#   only:
+#     refs:
+#       - dev
+
+# #
+# # Dockerize prod
+# #
+# dockerize_prod:
+#   environment: production
+#   stage: dockerize
+#   tags:
+#     - docker
+#     - eks
+#   script:
+#     - find . -type f -print0 | xargs -0 chmod 644
+#     - docker login -u ${DEPLOY_USER} -p ${DEPLOY_PASSWORD} ${CI_REGISTRY}
+#     - docker build -t ${IMAGE} --build-arg ENV="prod" -f ./Dockerfile .
+#     - docker push ${IMAGE}
+#   only:
+#     refs:
+#       - master
+
+
+# #
+# # Deploy to development environment
+# #
+# deploy_dev:
+#   environment:
+#     name: development
+#   stage: deploy
+#   image: registry.netobjex.com/docker/helm:v3
+#   tags:
+#     - docker
+#     - eks
+#   script:
+#     - init_helm
+#     - export URL=${URL_REVIEW} &&
+#       export VAULT_PATH_SECRET=${DEV_VAULT_PATH_SECRET}
+#     - bash ci_cd/fill_vars.sh
+#     - helm upgrade
+#            --install
+#            --namespace ${CI_COMMIT_REF_SLUG}
+#            --wait
+#            --force
+#            -f server_config/${CI_ENVIRONMENT_NAME}.values.yaml
+#            ${APP_NAME}-${CI_COMMIT_REF_SLUG}
+#            $URL_HELM_CHART
+#   only:
+#     refs:
+#       - dev
+
+# #
+# # Deploy to production environment
+# #
+# deploy_prod:
+#   environment:
+#     name: production
+#   stage: deploy
+#   image: registry.netobjex.com/docker/helm:v3
+#   tags:
+#     - docker
+#     - eks
+#   script:
+#     - init_helm
+#     - export URL=${URL_PRODUCTION} &&
+#       export VAULT_PATH_SECRET=${PROD_VAULT_PATH_SECRET}
+#     - bash ci_cd/fill_vars.sh
+#     - helm upgrade
+#            --install
+#            --namespace prod
+#            --wait
+#            --force
+#            -f server_config/production.values.yaml
+#            ${APP_NAME}
+#            $URL_HELM_CHART
+#   only:
+#     refs:
+#       - master
+
+
+# .functions: &functions |
+#   # Functions
+#   function init_helm() {
+#     aws eks --region ${AWS_REGION} update-kubeconfig --name ${CLUSTER_NAME}
+#     kubectl get cs
+#   }
+
+# before_script:
+#   - *functions
